@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import Products from "./Components/Products";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import SingleProduct from "./Components/SingleProduct";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  // Getting all products data
+  const API_URL = "https://dummyjson.com/products";
+  const getAllProducts = async () => {
+    const responce = await fetch(API_URL);
+    const data = await responce.json();
+    setData(data.products);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Products
+                data={data}
+                getAllProducts={getAllProducts}
+                setData={setData}
+              />
+            }
+          />
+          <Route path="product/:id" element={<SingleProduct />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

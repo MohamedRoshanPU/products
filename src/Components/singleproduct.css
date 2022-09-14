@@ -1,0 +1,60 @@
+.single-product {
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.left-section {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section {
+  width: 50%;
+  height: auto;
+}
+
+.rating,
+.number-of-stocks {
+  margin: 40px 0px;
+}
+
+.main {
+  font-size: 22px;
+}
+
+.rating p {
+  font-size: 18px;
+  color: red;
+}
+
+.main-price {
+  font-size: 36px;
+}
+
+.main-prices {
+  margin-bottom: 50px;
+}
+
+.images-container {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.small-image {
+  width: 150px;
+  height: 150px;
+}
+
+.small-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
